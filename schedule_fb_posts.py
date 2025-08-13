@@ -13,8 +13,18 @@ load_dotenv()
 GRAPH_VERSION = "v19.0"
 API_BASE = f"https://graph.facebook.com/{GRAPH_VERSION}"
 
-PAGE_ID = os.environ.get("FB_PAGE_ID")
-ACCESS_TOKEN = os.environ.get("FB_PAGE_ACCESS_TOKEN")
+page_id = os.getenv("FB_PAGE_ID")
+access_token = os.getenv("FB_PAGE_ACCESS_TOKEN")
+
+url = f"https://graph.facebook.com/{page_id}/feed"
+payload = {
+    "message": "Scheduled post content",
+    "published": False,  # for scheduling
+    "access_token": access_token
+}
+
+response = requests.post(url, data=payload)
+print(response.json())
 
 CSV_PATH = "amzing_fb_schedule.csv"
 
