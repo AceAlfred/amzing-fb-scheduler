@@ -18,6 +18,12 @@ jobs:
         with:
           node-version: '16'
 
+      - name: Ensure package.json exists
+        run: |
+          if [ ! -f package.json ]; then
+            echo '{}' > package.json
+          fi
+
       - name: Install dependencies
         run: npm install
 
