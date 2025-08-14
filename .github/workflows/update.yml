@@ -2,7 +2,7 @@ name: Facebook Scheduler Update
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour
+    - cron: '0 8 * * *'  # Körs varje dag kl. 08:00
   workflow_dispatch:     # Allows manual triggering
 
 jobs:
