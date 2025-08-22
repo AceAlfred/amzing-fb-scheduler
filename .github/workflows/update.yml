@@ -1,13 +1,15 @@
 name: Facebook Scheduler Update
 
-#on:
- # schedule:
-#    - cron: '0 8 * * *'  # Körs varje dag kl. 08:00
-#  workflow_dispatch:     # Allows manual triggering
+on:
+  schedule:
+    - cron: '0 12 * * *'  # Körs varje dag kl. 12:00
+    - cron: '0 18 * * *'  # Körs varje dag kl. 18:00
+  workflow_dispatch:      # Tillåter manuell körning
 
-#jobs:
-#  run-scheduler:
-#    runs-on: ubuntu-latest
+
+jobs:
+  run-scheduler:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
