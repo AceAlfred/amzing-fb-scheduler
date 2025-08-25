@@ -35,7 +35,7 @@ def iso_to_unix_utc(iso_str: str) -> int:
     return int(dt.astimezone(ZoneInfo("UTC")).timestamp())
 
 def schedule_post(message: str, scheduled_iso: str) -> dict:
-    url = f"{API_BASE}/{PAGE_ID}/feed"
+    url = f"{API_BASE}/{FB_PAGE_ID}/feed"
     payload = {
         "message": message,
         "published": "false",
@@ -52,7 +52,7 @@ def schedule_post(message: str, scheduled_iso: str) -> dict:
     return data
 
 def main():
-    if not PAGE_ID or not ACCESS_TOKEN:
+    if not FB_PAGE_ID or not FB_PAGE_ACCESS_TOKEN:
         raise SystemExit("❌ Saknar FB_PAGE_ID eller FB_PAGE_ACCESS_TOKEN i .env")
 
     successes, failures = 0, 0
